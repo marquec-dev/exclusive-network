@@ -567,4 +567,4 @@ client.once("clientReady", () => {
   console.log(`✅ VETA BOT iniciado como ${client.user.tag}`);
 });
 
-client.login("MTQyMDgxNDkxMjUzNTY2MjcwMg.G3g9fd.WeFqnIy-v30E0_DK08SyuQ9dl9__--Z_jjJjSw");
+client.login("MTQyMDgxNDkxMjUzNTY2MjcwMg.GK0v9w.kDFKzQ9bi3Qn93qA2PR6NZeZpIRXcIxHqUUHA8");
