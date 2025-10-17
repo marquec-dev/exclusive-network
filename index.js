@@ -25,21 +25,21 @@ const client = new Client({
 
 // CONFIG
 const CONFIG = {
-  STAFF_ROLE: "1420879779158032488",
-  LOGS_CHANNEL: "1420879781872013449",
+  STAFF_ROLE: "1427228183761125516",
+  LOGS_CHANNEL: "1428871077811196035",
   CATEGORIES: {
-    soporte: "1420879782094180387",
-    dudas: "1420879782094180388",
-    bugs: "1420879782094180389",
-    cks: "1420879782094180390",
-    entrada: "1420879782094180391",
-    donaciones: "1420879782094180392",
-    devoluciones: "1420879782094180393",
-    apelaciones: "1420879782094180395"
+    soporte: "1428867674393542766",
+    dudas: "1428867674393542766",
+    bugs: "1428867674393542766",
+    cks: "1428867674393542766",
+    entrada: "1428867674393542766",
+    donaciones: "1428867674393542766",
+    devoluciones: "1428867674393542766",
+    apelaciones: "1428867674393542766"
   }
 };
 
-// Mensajes / Preguntas (mantengo tu estructura)
+// Mensajes / Preguntas
 const MENSAJES = {
   soporte: "🛠️ Un miembro del staff atenderá tu caso en breve. Por favor, ten paciencia mientras revisamos tu problema.",
   dudas: "❓ Gracias por tu consulta. Un miembro del staff responderá tu duda lo antes posible.",
@@ -563,8 +563,16 @@ client.on("messageCreate", async (message) => {
   }
 });
 // ready
-client.once("clientReady", () => {
-  console.log(`✅ VETA BOT iniciado como ${client.user.tag}`);
+const express = require("express");
+const server = express();
+server.all("/", (req, res) => {
+  res.send("✅ Bot EXCLUSIVE está activo.");
 });
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => console.log(`🌐 Servidor web encendido en el puerto ${PORT}`));
 
-client.login("MTQyMDgxNDkxMjUzNTY2MjcwMg.GK0v9w.kDFKzQ9bi3Qn93qA2PR6NZeZpIRXcIxHqUUHA8");
+// discord
+client.once("clientReady", () => {
+  console.log(`✅ EXCLUSIVE BOT iniciado como ${client.user.tag}`);
+});
+client.login(process.env.TICKET);
