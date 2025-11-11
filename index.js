@@ -23,6 +23,8 @@ const client = new Client({
   partials: [Partials.Channel],
 });
 
+const fs = require('fs');
+
 // CONFIG
 const CONFIG = {
   STAFF_ROLE: "1427228183761125516",
@@ -547,21 +549,21 @@ client.on("messageCreate", async (message) => {
   if (message.content === ".servidores") {
     const embed = new EmbedBuilder()
       .setTitle("🌐 Servidores Oficiales")
-      .setImage("https://i.imgur.com/cmVAI99.png")
+      .setThumbnail("https://i.imgur.com/TNC3E4u.png")
       .setDescription(
-        "**Aquí tienes los enlaces de los servidores de las diferentes facciones de IMAGINE RP:**\n\n" +
-        "🔴 **ILEGALES:** [Entrar](https://discord.gg/aKMuxbZG78)\n\n" +
-        "🟢 **LEGALES:** [Entrar](https://discord.gg/gh5K7fyAK8)\n\n" +
-        "⚕️ **EMS:** [Entrar](https://discord.gg/B6gpMs3Ufw)\n\n" +
-        "👮 **LSPD:** [Entrar](https://discord.gg/gZJ8zzHscM)\n\n" +
-        "🕵️ **FIB:** [Entrar](https://discord.gg/3zpqSxKkyH)"
+        "**Aquí tienes los enlaces de los servidores de las diferentes facciones principales de Exclusive Network:**\n\n" +
+        "👮 **LSPD:** [Entrar](https://discord.gg/x7U7SU2v34)\n\n" +
+        "⚕️ **EMS:** [Entrar](https://discord.gg/6vSvCdNR)\n\n" +
+        "🔴 **ILEGALES:** [Entrar](https://discord.gg/ZDeHBYJCXf)\n\n" +
+        "🟢 **LEGALES (Negocios):** [Entrar](https://discord.gg/jYXBtKZPy2)"
       )
       .setColor("Blue")
-      .setFooter({ text: "© 2025 · IMAGINE RP" });
+      .setFooter({ text: "© 2025 · Exclusive Network" });
 
     await message.channel.send({ embeds: [embed] });
   }
 });
+
 // ready
 const express = require("express");
 const server = express();
@@ -574,5 +576,15 @@ server.listen(PORT, () => console.log(`🌐 Servidor web encendido en el puerto 
 // discord
 client.once("clientReady", () => {
   console.log(`✅ EXCLUSIVE BOT iniciado como ${client.user.tag}`);
+
+  client.user.setPresence({
+    activities: [
+      {
+        name: "Exclusive Network ⭐",
+        type: 3 // 0 = Playing / 2 = Listening / 3 = Watching / 5 = Competing
+      }
+    ],
+    status: "online" // "online", "idle", "dnd" o "i nvisible"
+  });
 });
 client.login(process.env.TICKET);
