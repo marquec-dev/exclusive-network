@@ -587,4 +587,4 @@ client.once("clientReady", () => {
     status: "online" // "online", "idle", "dnd" o "i nvisible"
   });
 });
-client.login(process.env.TICKET);
+client.login(process.env.TOKEN);
